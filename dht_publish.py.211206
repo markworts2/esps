@@ -1,0 +1,41 @@
+from time import sleep
+from time import time
+from umqtt.simple import MQTTClient
+import machine
+from dht import DHT22
+import onewire, ds18x20
+from struct import unpack
+
+SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
+CLIENT_ID = 'ESP32_DHT22_Sensor'
+TOPIC = b'temp_humidity'
+rtc = machine.RTC()
+DateTime now = rtc.now()
+
+print('Connecting to MQTT')
+client = MQTTClient(CLIENT_ID, SERVER)
+client.connect()   # Connect to MQTT broker
+
+
+ds_pin = machine.Pin(21)
+ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
+
+roms = ds_sensor.scan()
+print('Found DS devices: ', roms)
+
+try:
+    ds_sensor.convert_temp()
+    sleep(1)
+    for rom in roms:
+      try:
+        msg = str(now.year()) +  "," + str(unpack('<H', rom)[0]) + "," + str(ds_sensor.read_temp(rom))
+        client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
+        print(msg)
+      except:
+        client.publish(TOPIC, 'error')
+except OSError:
+    d = time()
+    msg = (b'{}'.format(d))
+    print('Failed to read sensor.')
+    client.publish(TOPIC,msg)
+sleep(5)
