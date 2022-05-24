@@ -15,7 +15,9 @@ print('version 20220425_v_w0.1')
 SHUNT_OHMS = 0.1
 
 ina = INA219()
-print(ina.read())
+reading = ina.read()
+print (reading[0])
+
 
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
 CLIENT_ID = 'ESP32_DHT22_Sensor'
@@ -34,7 +36,7 @@ except IndexError:
 
 #send date and reading
 try:
-   msg = date_str + ",IV," + str(ina.read())
+   msg = date_str + ",IV," + str(reading[0]) + "," + str(reading[1])
    client.publish(TOPIC,str(msg))  # Publish voltage data to MQTT topic
 except Exception as e: print(str(e))
 sleep(5)

@@ -33,5 +33,11 @@ class INA219(object):
         data = ustruct.unpack('!h', data)[0]
         return (data>>3)*4.0 #mV
     
+    def readW(self):
+        self.i2c.writeto(self.addr, '\3') #select Reg3 Bus Voltage
+        data = self.i2c.readfrom(self.addr, 2)
+        data = ustruct.unpack('!h', data)[0]
+        return data
+    
     def read(self):
-      return self.readI(), self.readV()
+      return self.readI(), self.readV(), self.readW()
