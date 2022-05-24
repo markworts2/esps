@@ -54,7 +54,7 @@ def conectarwifi():
 
 def get_html():
     print('in ina_219')
-    import ina219_publish
+    import publish_ina219_esp8266
     print('done import')
     print('done run')
 
