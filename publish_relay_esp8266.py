@@ -10,7 +10,7 @@ from machine import ADC
 print('end of imports')
 print('publish relay')
 
-# create an input pin on pin #14
+# create an input pin on pin 14
 pp = 14
 print(pp)
 p14 = Pin(pp, Pin.IN)
