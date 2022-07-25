@@ -16,7 +16,7 @@ print(pp)
 p14 = Pin(pp, Pin.IN)
 
 # set the value low then high - testing when power on or off
-pint = 27 # Intervalue of pin
+pint27 = 27 # Intervalue of pin
 p27 = Pin(pint27, Pin.OUT) # initiate pin as output
 print ("boot state")
 print('turning off')
