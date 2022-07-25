@@ -9,20 +9,20 @@ from machine import Pin
 from machine import ADC
 print('end of imports')
 
-# create an output pin on pin #0
+# create an input pin on pin #14
 pp = 14
 print(pp)
 p14 = Pin(pp, Pin.IN)
 
-# set the value low then high
-#print('off')
-#p0.value(0)
-#sleep(20)
-#print('on')
-#p0.value(1)
-#sleep(10)
-#print('off')
-#p0.value(0)
+# set the value low then high - testing when power on or off
+pint = 27 # Intervalue of pin
+p27 = Pin(pint27, Pin.OUT) # initiate pin as output
+print ("boot state")
+print('turning off')
+p27.value(0)
+sleep(20)
+print('Turning on')
+p27.value(1)
 
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
 CLIENT_ID = 'ESP32_DHT22_Sensor'
@@ -54,7 +54,7 @@ print ('report pin14')
 try:
    msg = date_str +  ",display," + str(p14)
    print (msg)
-   client.publish(TOPIC,str(msg))  # Publish voltage data to MQTT topic
+   client.publish(TOPIC,str(msg))  # Publish P14 which is the water meter reading
 except Exception as e: print(str(e))
 
 print('4')
