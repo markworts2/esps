@@ -8,6 +8,7 @@ from struct import unpack
 from machine import Pin
 from machine import ADC
 print('end of imports')
+print('publish relay')
 
 # create an input pin on pin #14
 pp = 14
