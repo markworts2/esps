@@ -24,6 +24,9 @@ p27.value(0)
 sleep(20)
 print('Turning on')
 p27.value(1)
+print('on - sleeping')
+sleep(20)
+print('Sleep over')
 
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
 CLIENT_ID = 'ESP32_DHT22_Sensor'
