@@ -31,8 +31,8 @@ print('Sleep over')
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
 CLIENT_ID = 'ESP32_DHT22_Sensor'
 TOPIC = b'temp_humidity'
-rtc = machine.RTC()
-adc = ADC(0)  #get the ADC0 pin reading (Analogue to digital pin)
+#rtc = machine.RTC()
+#adc = ADC(0)  #get the ADC0 pin reading (Analogue to digital pin)
 
 date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
 
