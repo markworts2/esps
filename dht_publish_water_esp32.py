@@ -15,15 +15,11 @@ p14 = Pin(14, Pin.IN)
 pint27 = 27 # Integer value of pin
 p27 = Pin(pint27, Pin.OUT) # initiate pin as output
 print ("boot state")
-print('turning off')
-p27.value(0)
-sleep(20)
-print('Turning on')
+print('Turning on to take reading')
 p27.value(1)
-print('on - sleeping')
-sleep(20)
-print('Sleep over')
-p27.value(0)
+print('on')
+sleep(10) #give change for meter to turn on and create a proper reading
+
 
 
 
@@ -48,6 +44,8 @@ try:
 except:
         print('Error')
 
+print('turn off')
+p27.value(0)
 
 ds_pin = machine.Pin(21)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
