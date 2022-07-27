@@ -60,8 +60,10 @@ try:
     conectarwifi()
     startdht()
     print('in try')
-except Exception as e:
-	print("ERROR : "+str(e))
+except KeyboardInterrupt:
+    print('keyboard')
+    sys.exit()
+
 
 print('back in main, sleep 60000')
 machine.deepsleep(60000)
