@@ -21,15 +21,17 @@ try:
 except IndexError:
    print ('index errort')
 
-
-ds_pin = machine.Pin(21)
+#read p14 the plan water sensor and push to MQQT
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
         msg = date_str +  "," + str('p14') + "," + str(p14.value())
         client.publish(TOPIC, msg)
+        print (msg)
 except:
         print('Error')
 
+
+ds_pin = machine.Pin(21)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
 roms = ds_sensor.scan()
