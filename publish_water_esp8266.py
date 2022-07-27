@@ -28,7 +28,6 @@ SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of yo
 CLIENT_ID = 'ESP32_DHT22_Sensor'
 TOPIC = b'temp_humidity'
 rtc = machine.RTC()
-adc = ADC(Pin(0))  #get the ADC0 pin reading (Analogue to digital pin)
 
 date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
 
@@ -40,14 +39,7 @@ try:
 except IndexError:
    print ('index error connecting to mosquito server')
 
-#send the ADC0 pin out reading
-print ('report adc0')
-try:
-   vadc = adc.read()
-   msg = date_str +  ",power," + str(vadc)
-   print (msg)
-   client.publish(TOPIC,str(msg))  # Publish voltage data to MQTT topic
-except Exception as e: print(str(e))
+
 
 print('4')
 ds_pin = machine.Pin(4)
