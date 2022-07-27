@@ -9,6 +9,24 @@ from machine import Pin
 
 p14 = Pin(14, Pin.IN)
 
+
+# set the value low then high - testing when power on or off
+# this can turn on and off power to moisture as it goes geen if always on
+pint27 = 27 # Integer value of pin
+p27 = Pin(pint27, Pin.OUT) # initiate pin as output
+print ("boot state")
+print('turning off')
+p27.value(0)
+sleep(20)
+print('Turning on')
+p27.value(1)
+print('on - sleeping')
+sleep(20)
+print('Sleep over')
+p27.value(0)
+
+
+
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
 CLIENT_ID = 'ESP32_DHT22_Sensor'
 TOPIC = b'temp_humidity'
