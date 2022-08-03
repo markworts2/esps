@@ -13,7 +13,7 @@ rtc = machine.RTC()
 p14 = Pin(14, Pin.IN) #set pin 14 to read in
 
 #Create Analogue to Digital for port 34
-pot = ADC(Pin(34))
+pot = ADC(Pin(39))
 pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 
 #Test loop to print the ADC value
