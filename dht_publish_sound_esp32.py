@@ -5,7 +5,7 @@ import machine
 from dht import DHT22
 import onewire, ds18x20
 from struct import unpack
-from machine import Pin
+from machine import Pin,ADC
 
 #Real Time Cloud initialisation
 rtc = machine.RTC()
