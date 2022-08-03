@@ -20,7 +20,7 @@ pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 while True:
   pot_value = pot.read()
   print(pot_value)
-  sleep(0.1)
+#  sleep(0.1)
 
 # set the value low then high - testing when power on or off
 # this can turn on and off power to moisture as it goes geen if always on
