@@ -10,9 +10,22 @@ from machine import Pin,ADC
 #Real Time Cloud initialisation
 rtc = machine.RTC()
 
+#MQQT connection  details
+SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
+CLIENT_ID = 'ESP32_DHT22_Sensor'
+TOPIC = b'temp_humidity'
+  
+print('Connecting to MQTT')
+client = MQTTClient(CLIENT_ID, SERVER)
+try:
+     client.connect()   # Connect to MQTT broker
+except IndexError:
+     print ('index errort')
+
+
 p14 = Pin(14, Pin.IN) #set pin 14 to read in
 
-#Create Analogue to Digital for port 34
+#Create Analogue to Digital for port 39
 pot = ADC(Pin(39))
 pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 
@@ -39,6 +52,16 @@ while True:
   average_vol = average_vol / count
   date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*recording_time)
   print(date_str,min_vol,average_vol)
+
+
+
+  #Send sounds results on MQQT
+  try:
+        msg = date_str +  "," + str('sound') + "," + str(min_vol) + "," + str(average_vol)
+        client.publish(TOPIC, msg)
+        print (msg)
+  except:
+        print('Error')
   
 # set the value low then high - testing when power on or off
 # this can turn on and off power to moisture as it goes geen if always on
@@ -52,19 +75,9 @@ sleep(10) #give change for meter to turn on and create a proper reading
 
 
 
-#MQQT connection 
-SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
-CLIENT_ID = 'ESP32_DHT22_Sensor'
-TOPIC = b'temp_humidity'
 
 
 
-print('Connecting to MQTT')
-client = MQTTClient(CLIENT_ID, SERVER)
-try:
-   client.connect()   # Connect to MQTT broker
-except IndexError:
-   print ('index errort')
 
 #read p14 the plan water sensor and push to MQQT
 try:
