@@ -50,7 +50,7 @@ while True:
 
 
   average_vol = average_vol / count
-  date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*recording_time)
+  date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}:{6:02d}".format(*recording_time)
   print(date_str,min_vol,average_vol)
 
 
