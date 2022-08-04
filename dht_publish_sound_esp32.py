@@ -16,11 +16,11 @@ p14 = Pin(14, Pin.IN) #set pin 14 to read in
 pot = ADC(Pin(39))
 pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 
-pot_value = []
+pot_value = {}
 
 #Test loop to print the ADC value
 while True:
-  pot_value.append(pot.read)
+  pot_value.update({rtc.datetime():pot.read})
 
   print(pot_value)
   sleep(0.1)
