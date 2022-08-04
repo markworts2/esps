@@ -20,7 +20,7 @@ client = MQTTClient(CLIENT_ID, SERVER)
 try:
      client.connect()   # Connect to MQTT broker
 except IndexError:
-     print ('index errort')
+     print ('MQQT connect index error')
 
 
 p14 = Pin(14, Pin.IN) #set pin 14 to read in
@@ -62,6 +62,10 @@ while True:
         print (msg)
   except:
         print('Error')
+        break
+
+
+
   
 # set the value low then high - testing when power on or off
 # this can turn on and off power to moisture as it goes geen if always on
