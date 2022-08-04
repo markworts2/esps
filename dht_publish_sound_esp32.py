@@ -29,7 +29,7 @@ while True:
 
 #  sleep(0.1)
 for key in pot_value.keys():
-    print(key,pot_value(key))
+    print(key,pot_value[key])
   
 # set the value low then high - testing when power on or off
 # this can turn on and off power to moisture as it goes geen if always on
