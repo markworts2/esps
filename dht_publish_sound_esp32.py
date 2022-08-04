@@ -21,21 +21,23 @@ count = 0
 iterations = 1000
 
 #Test loop to print the ADC value
-recording_time = rtc.datetime()
-average_vol = 0
-min_vol  = 10000
+
 while True:
-  vol = pot.read()
-  if vol < min_vol:min_vol=vol
-  average_vol = average_vol + vol
-  count += 1
-  sleep(0.01)
-  if count > iterations:break
+  recording_time = rtc.datetime()
+  average_vol = 0
+  min_vol  = 10000
+  while True:
+    vol = pot.read()
+    if vol < min_vol:min_vol=vol
+    average_vol = average_vol + vol
+    count += 1
+    sleep(0.01)
+    if count > iterations:break
 
 
-average_vol = average_vol / count
+  average_vol = average_vol / count
 
-print(recording_time,min_vol,average_vol)
+  print(recording_time,min_vol,average_vol)
   
 # set the value low then high - testing when power on or off
 # this can turn on and off power to moisture as it goes geen if always on
