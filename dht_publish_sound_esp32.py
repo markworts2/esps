@@ -60,9 +60,9 @@ while True:
         msg = date_str +  "," + str('sound') + "," + str(min_vol) + "," + str(average_vol)
         client.publish(TOPIC, msg)
         print (msg)
-  except:
-        print('Error')
-        break
+  except Exception as e:
+	      print("ERROR : "+str(e))
+        
 
 
 
