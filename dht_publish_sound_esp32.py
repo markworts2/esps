@@ -19,7 +19,7 @@ pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 pot_value = {}
 count = 0
 iterations = 1000
-end_time = rtc.datetime() + 1
+rtc.alarm(time=3600000)
 
 #Test loop to print the ADC value
 while True:
