@@ -17,12 +17,13 @@ pot = ADC(Pin(39))
 pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 
 pot_value = {}
-count = 0
+
 iterations = 1000
 
 #Test loop to print the ADC value
 
 while True:
+  count = 0
   recording_time = rtc.datetime()
   average_vol = 0
   min_vol  = 10000
