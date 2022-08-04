@@ -20,7 +20,7 @@ pot_value = {}
 
 #Test loop to print the ADC value
 while True:
-  pot_value.update({rtc.datetime():pot.read})
+  pot_value.update({rtc.datetime():pot.read()})
 
   print(pot_value)
   sleep(0.1)
