@@ -17,14 +17,19 @@ pot = ADC(Pin(39))
 pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 
 pot_value = {}
+count = 0
+iterations = 1000
 
 #Test loop to print the ADC value
 while True:
   pot_value.update({rtc.datetime():pot.read()})
+  count += 1
+  if count >= iterations:break
 
-  print(pot_value)
-  sleep(0.1)
 
+#  sleep(0.1)
+print(pot_value)
+  
 # set the value low then high - testing when power on or off
 # this can turn on and off power to moisture as it goes geen if always on
 pint27 = 27 # Integer value of pin
