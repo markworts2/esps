@@ -7,12 +7,14 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin,ADC
 
+print ('Version 220804 v0-9x')
+
 #Real Time Cloud initialisation
 rtc = machine.RTC()
 
 #MQQT connection  details
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
-CLIENT_ID = 'ESP32_DHT22_Sensor'
+CLIENT_ID = 'ESP32_sound_Sensor'
 TOPIC = b'temp_humidity'
   
 print('Connecting to MQTT')
