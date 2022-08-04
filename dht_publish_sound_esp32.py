@@ -38,7 +38,7 @@ while True:
 
   average_vol = average_vol / count
   date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*recording_time)
-  print(recording_time,min_vol,average_vol)
+  print(date_str,min_vol,average_vol)
   
 # set the value low then high - testing when power on or off
 # this can turn on and off power to moisture as it goes geen if always on
