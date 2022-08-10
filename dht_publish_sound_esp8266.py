@@ -25,10 +25,8 @@ except IndexError:
      print ('MQQT connect index error')
 
 
-p14 = Pin(14, Pin.IN) #set pin 14 to read in
-
 #Create Analogue to Digital for port 39
-pot = ADC(Pin(0))
+pot = ADC(0)
 pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 
 pot_value = {}
