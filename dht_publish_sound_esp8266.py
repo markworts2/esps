@@ -14,7 +14,7 @@ rtc = machine.RTC()
 
 #MQQT connection  details
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
-CLIENT_ID = 'ESP32_sound_Sensor'
+CLIENT_ID = 'ESP8266_sound_Sensor'
 TOPIC = b'temp_humidity'
   
 print('Connecting to MQTT')
@@ -56,7 +56,7 @@ while True:
 
   #Send sounds results on MQQT
   try:
-        msg = date_str +  "," + str('sound') + "," + str(min_vol) + "," + str(average_vol)
+        msg = date_str +  "," + str('sound8266') + "," + str(min_vol) + "," + str(average_vol)
         client.publish(TOPIC, msg)
         print (msg)
   except Exception as e:
