@@ -27,7 +27,6 @@ except IndexError:
 
 #Create Analogue to Digital for port 39
 pot = ADC(0)
-pot.atten(ADC.ATTN_11DB)       #Full range: 3.3v
 
 pot_value = {}
 
