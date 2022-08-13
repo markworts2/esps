@@ -44,6 +44,7 @@ while True:
     if vol < min_vol:min_vol=vol
     average_vol = average_vol + vol
     count += 1
+    print (vol)
     sleep(0.01)
     if count > iterations:break
 
