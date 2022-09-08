@@ -22,7 +22,7 @@ except IndexError:
    print ('index errort')
 
 
-ds_pin = machine.Pin(21)
+ds_pin = machine.Pin(4)
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
         msg = date_str +  "," + str('p14') + "," + str(p14.value())
