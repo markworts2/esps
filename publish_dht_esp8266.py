@@ -50,8 +50,8 @@ try:
    client.publish(TOPIC,str(msg))  # Publish voltage data to MQTT topic
 except Exception as e: print(str(e))
 
-print('4')
-ds_pin = machine.Pin(4)
+print('2')
+ds_pin = machine.Pin(2)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
 roms = ds_sensor.scan()
