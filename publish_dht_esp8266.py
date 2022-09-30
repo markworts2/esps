@@ -11,9 +11,9 @@ print('end of imports')
 print('version 20220329_v_w0.1')
 
 # create an output pin on pin #0
-pp = 4
-print(pp)
-p0 = Pin(pp, Pin.IN)
+# pp = 4
+# print(pp)
+# p0 = Pin(pp, Pin.IN)
 
 # set the value low then high
 #print('off')
