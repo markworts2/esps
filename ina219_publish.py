@@ -47,7 +47,7 @@ except IndexError:
 
 #send date and reading
 try:
-   msg = date_str + ",IV," + str(reading[0]) + "," + str(reading[1])
+   msg = date_str + ",IV," + str(reading[0]) + "," + str(reading[1]) + "," + str(reading[2])  + "," + str(reading4)  + "," + str(reading5)
    client.publish(TOPIC,str(msg))  # Publish voltage data to MQTT topic
 except Exception as e: print(str(e))
 sleep(5)
