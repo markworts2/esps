@@ -65,6 +65,28 @@ class INA219(object):
             raw_current -= 2**16
         return raw_current * CURRENT_LSB
 
+    def read_voltage(self):
+        MAX_CURRENT = 3.2 # Amps
+        CURRENT_LSB = MAX_CURRENT/(2**15)
+        R_SHUNT = 0.1 # Ohms
+        CALIBRATION = int(0.04096 / (CURRENT_LSB * R_SHUNT))
+
+        CONF_R = 0x00
+        SHUNT_V_R = 0x01
+        BUS_V_R = 0x02
+        POWER_R = 0x03
+        CURRENT_R = 0x04
+        CALIBRATION_R = 0x05
+
+        ADDRESS = 0x40
+
+        SDA = Pin(4)
+        SCL = Pin(5)
+        FREQ = 400000
+
+        i2c = I2C(sda=SDA,scl=SCL,freq=FREQ)
+        i2c.writeto_mem(ADDRESS, CALIBRATION_R ,(CALIBRATION).to_bytes(2, 'big'))
+        return (int.from_bytes(i2c.readfrom_mem(ADDRESS, BUS_V_R, 2), 'big') >> 3) * 0.004
     
     def read(self):
       return self.readI(), self.readV(), self.readW()
