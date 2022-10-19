@@ -9,7 +9,6 @@ from auth import (
    wifi_pass
 )
 
-led = Pin(13, Pin.OUT)    # led no pin 13 do ESP32
 print('in main')
 print ('Version 20220329_v_0.1')
 
