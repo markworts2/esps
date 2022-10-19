@@ -22,7 +22,12 @@ print (reading2)
 reading3 = ina.readW()
 print (reading3)
 reading4 = ina.read_current()
+print("current")
 print (reading4)
+reading5 = ina.read_voltage()
+print("voltage")
+print (reading5)
+print (reading4*reading5)
 
 
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
