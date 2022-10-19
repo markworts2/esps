@@ -39,7 +39,7 @@ class INA219(object):
         data = ustruct.unpack('!h', data)[0]
         return data
 
-    def read_current():
+    def read_current(self):
         MAX_CURRENT = 3.2 # Amps
         CURRENT_LSB = MAX_CURRENT/(2**15)
         R_SHUNT = 0.1 # Ohms
