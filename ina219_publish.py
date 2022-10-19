@@ -16,7 +16,7 @@ SHUNT_OHMS = 0.1
 
 ina = INA219()
 reading = ina.read()
-print (reading[0])
+print (reading[0],reading[1],reading[2])
 
 
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
