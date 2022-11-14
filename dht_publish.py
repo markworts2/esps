@@ -6,7 +6,7 @@ from dht import DHT22
 import onewire, ds18x20
 from struct import unpack
 from machine import Pin
-print ("dht_publish v221114_1 ds_pin 2")
+print ("dht_publish v221114_1 ds_pin 4")
 
 p14 = Pin(14, Pin.IN)
 
@@ -30,7 +30,7 @@ try:
 except:
         print('Error')
 
-ds_pin = machine.Pin(2)
+ds_pin = machine.Pin(4)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
 roms = ds_sensor.scan()
