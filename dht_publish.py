@@ -6,6 +6,7 @@ from dht import DHT22
 import onewire, ds18x20
 from struct import unpack
 from machine import Pin
+print ("dht_publish v221114_1 ds_pin 4")
 
 p14 = Pin(14, Pin.IN)
 
