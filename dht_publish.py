@@ -6,7 +6,7 @@ from dht import DHT22
 import onewire, ds18x20
 from struct import unpack
 from machine import Pin
-print ("dht_publish v221114_1 ds_pin 4")
+print ("dht_publish v221114_1 ds_pin 2")
 
 p14 = Pin(14, Pin.IN)
 
@@ -23,7 +23,6 @@ except IndexError:
    print ('index errort')
 
 
-ds_pin = machine.Pin(4)
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
         msg = date_str +  "," + str('p14') + "," + str(p14.value())
@@ -31,6 +30,7 @@ try:
 except:
         print('Error')
 
+ds_pin = machine.Pin(2)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
 roms = ds_sensor.scan()
