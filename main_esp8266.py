@@ -65,6 +65,7 @@ except KeyboardInterrupt:
     print('keyboard')
     sys.exit()
 except:
+    print('Error going to pass')
     pass
 print('back in main, sleep 5 mins')
 machine.deepsleep(300000)
