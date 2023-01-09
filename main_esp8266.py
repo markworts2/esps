@@ -10,7 +10,7 @@ from auth import (
 )
 
 print('in main')
-print ('Version 20220329_v_0.1')
+print ('Version 20230109_v_0.1')
 
 #Conect to WiFi
 def conectarwifi():
@@ -52,7 +52,7 @@ def conectarwifi():
 
 def startdht():
     print('in startdht')
-    import publish_dht_esp8266 #choose which publish module to run
+    import publish_dht_esp32 #choose which publish module to run
     print('done import')
 #    dht_publish.run
     print('done run')
