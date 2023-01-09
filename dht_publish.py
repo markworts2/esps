@@ -49,8 +49,11 @@ try:
       except:
         client.publish(TOPIC, '')
 except OSError:
-    d = time()
-    msg = (b'{}'.format(d))
-    print('Failed to read sensor.')
-    client.publish(TOPIC,msg)
+        try:
+          d = time()
+          msg = (b'{}'.format(d))
+          print('Failed to read sensor.')
+          client.publish(TOPIC,msg)
+        except:
+          print('failed again, neven mind')
 sleep(5)
