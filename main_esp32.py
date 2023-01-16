@@ -10,6 +10,7 @@ from auth import (
 )
 
 print('in main')
+print('Version 230116V_1')
 
 #Conect to WiFi
 def conectarwifi():
