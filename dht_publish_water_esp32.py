@@ -7,22 +7,13 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-p14 = Pin(14, Pin.IN)
+p4 = Pin(4, Pin.OUT) #power pin
+p5 = Pin(5, Pin.IN) #read water pin
 
+print('turn on power pin 4')
+p4.value(1) #turn on the power pin
 
-# set the value low then high - testing when power on or off
-# this can turn on and off power to moisture as it goes geen if always on
-pint27 = 27 # Integer value of pin
-p27 = Pin(pint27, Pin.OUT) # initiate pin as output
-print ("boot state")
-print('Turning on to take reading')
-p27.value(1)
-print('on')
-sleep(10) #give change for meter to turn on and create a proper reading
-
-
-
-
+#connect to mqqt
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
 CLIENT_ID = 'ESP32_DHT22_Sensor'
 TOPIC = b'temp_humidity'
@@ -35,17 +26,20 @@ try:
 except IndexError:
    print ('index errort')
 
-#read p14 the plan water sensor and push to MQQT
+#read p5 the plan water sensor and push to MQQT
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('p14') + "," + str(p14.value())
+        msg = date_str +  "," + str('p4') + "," + str(p4.value())
         client.publish(TOPIC, msg)
         print (msg)
 except:
-        print('Error')
+        date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
+        msg = date_str +  "," + 'reading failed'
+        print('Failed to read sensor.')
+        client.publish(TOPIC,msg)
 
-print('turn off')
-p27.value(0)
+print('turn off power pin')
+p4.value(0)
 
 ds_pin = machine.Pin(21)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
