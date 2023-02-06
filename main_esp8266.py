@@ -2,7 +2,7 @@ import time
 from time import sleep
 import ntptime
 import machine
-import OS
+import os
 from machine import Pin
 
 from auth import (
