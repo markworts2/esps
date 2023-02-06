@@ -7,7 +7,7 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_punlish_water_esp32.py  v23/02/06 11:26')
+print ('dht_publish_water_esp32.py  v23/02/06 11:26')
 
 p4 = Pin(4, Pin.OUT) #power pin
 p5 = Pin(5, Pin.IN) #read water pin
