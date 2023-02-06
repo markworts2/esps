@@ -7,7 +7,7 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_publish_water_esp32.py  v23/02/06 11:26')
+print ('dht_publish_water_esp32.py  v23/02/06 11:42')
 
 p4 = Pin(4, Pin.OUT) #power pin
 p5 = Pin(5, Pin.IN) #read water pin
@@ -31,7 +31,7 @@ except IndexError:
 #read p5 the plan water sensor and push to MQQT
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('p4') + "," + str(p4.value())
+        msg = date_str +  "," + str('p5') + "," + str(p5.value())
         client.publish(TOPIC, msg)
         print (msg)
 except:
