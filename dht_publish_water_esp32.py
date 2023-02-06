@@ -38,6 +38,7 @@ except:
         print('Failed to read sensor.')
         client.publish(TOPIC,msg)
 
+sleep(10)
 print('turn off power pin')
 p4.value(0)
 
