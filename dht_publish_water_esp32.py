@@ -26,7 +26,7 @@ client = MQTTClient(CLIENT_ID, SERVER)
 try:
    client.connect()   # Connect to MQTT broker
 except IndexError:
-   print ('index errort')
+   print ('index error: can not connect to MQQT')
 
 #read p5 the plan water sensor and push to MQQT
 try:
@@ -40,7 +40,7 @@ except:
         print('Failed to read sensor.')
         client.publish(TOPIC,msg)
 
-sleep(10)
+sleep(0)
 print('turn off power pin')
 p4.value(0)
 
