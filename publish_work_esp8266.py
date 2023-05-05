@@ -13,7 +13,7 @@ spi = SPI(1, baudrate=10000000)
 screen = max7219.Max7219(64, 8, spi, Pin(12))
 screen.text('12345678', 0, 0, 1)
 screen.show()
-print('Should be 123445678')
+print('Should be 12345678')
 
 
 sleep(100000)
