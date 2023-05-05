@@ -19,6 +19,6 @@ try:
     display.clear()
 except Exception as e: print(str(e))
 
-
+Print('going to sleep')
 sleep(100000)
 print('end sleep')
