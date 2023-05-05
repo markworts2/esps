@@ -3,7 +3,9 @@ from time import time
 from umqtt.simple import MQTTClient
 import machine
 from machine import Pin, SPI
-import max7219
+try:
+    import max7219
+except Exception as e: print(str(e))
 
 print('in publish max7219')
 print('version 20230505 v_0.02')
