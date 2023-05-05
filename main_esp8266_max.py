@@ -52,7 +52,7 @@ def conectarwifi():
     print("Local time before synchronization：%s" %str(time.localtime()))
 
 def startdht():
-    print('in start_do_worts')
+    print('in start_do_work')
     import publish_work #choose which publish module to run
     print('done import')
 #    dht_publish.run
