@@ -12,7 +12,7 @@ print('version 20230505 v_0.02')
 
 
 try:
-    display = max7219.SevenSegment(digits=8, scan_digits=8, cs=15, spi_bus=2, reverse=True)
+    display = max7219.SevenSegment(digits=8, scan_digits=8, cs=15, spi_bus=1, reverse=True)
     print("ABCDEF")
     display.text("ABCDEF")
     sleep(100)
