@@ -9,11 +9,12 @@ print('in publish max7219')
 print('version 20230505 v_0.01')
 
 
-spi = SPI(1, baudrate=10000000)
-screen = max7219.Max7219(64, 8, spi, Pin(12))
-screen.text('12345678', 0, 0, 1)
-screen.show()
-print('Should be 12345678')
+
+display = max7219.SevenSegment(digits=16, scan_digits=8, cs=12, spi_bus=2, reverse=True)
+display.text("ABCDEF")
+display.number(3.14159)
+display.message("Hello World")
+display.clear()
 
 
 sleep(100000)
