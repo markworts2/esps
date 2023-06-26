@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"path": "../../Documents/VB"
+		},
+		{
+			"name": "esps",
+			"path": "."
+		},
+		{
+			"name": "pi_iac",
+			"path": "../pi_iac"
+		},
+		{
+			"name": "pi_html",
+			"path": "../pi_html"
+		},
+		{
+			"name": "NetBeansProjects",
+			"path": "../NetBeansProjects"
+		},
+		{
+			"path": "../ha"
+		}
+	],
+	"settings": {}
+}
