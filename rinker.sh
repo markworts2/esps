@@ -66,7 +66,7 @@ if diff $IPPATH $TMPIP > /dev/null
           cat $IPPATH >> $LOGPATH
       fi
   else                                # different IP, execute update
-      curl -s -A "wget -U "rinker.sh wget 1.0.1" -O $TEMP https://nic.changeip.com/nic/update?u=$CIPUSER&p=$CIPPASS&set=$CIPSET"
+      curl -s -A "rinker.sh curl 1.0" -o $TEMP  "https://nic.changeip.com/nic/update?u=$CIPUSER&p=$CIPPASS&set=$CIPSET"
       if [ $LOGLEVEL -ne 0 ]
         then                          # if logging, log update
           echo "--------------------------------" >> $LOGPATH
