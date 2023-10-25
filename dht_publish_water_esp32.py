@@ -10,7 +10,7 @@ from machine import Pin
 print ('dht_publish_water_esp32.py  v23/02/08 08:29')
 
 p4 = Pin(4, Pin.OUT) #power pin
-p5 = Pin(5, Pin.IN) #read water pin
+p3 = Pin(3, Pin.IN) #read water pin
 
 print('turn on power pin 4')
 p4.value(1) #turn on the power pin
@@ -31,7 +31,7 @@ except IndexError:
 #read p5 the plan water sensor and push to MQQT
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('p5') + "," + str(p5.value())
+        msg = date_str +  "," + str('p5') + "," + str(p3.value())
         client.publish(TOPIC, msg)
         print (msg)
 except:
