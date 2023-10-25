@@ -7,10 +7,12 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_publish_water_esp32.py  v25/10/08 14:04')
+print ('dht_publish_water_esp32.py  v25/10/23 14:04')
 
 p4 = Pin(4, Pin.OUT) #power pin
 p5 = Pin(5, Pin.IN) #read water pin
+p6 = Pin(6, Pin.IN) #read water analogue pin
+
 
 #connect to mqqt
 SERVER = '192.168.86.248'  # MQTT Server Address (Change to the IP address of your Pi)
@@ -27,15 +29,17 @@ except IndexError:
 
 print('turn on power pin 4')
 p4.value(1) #turn on the power pin
+sleep(1)
 print('read pin 5 the sensor pin')
-reading = p5.value()
+dreading = p5.value()
+areading = p6.value()
 print('turn off power pin')
 p4.value(0)
 
 # push to MQQT
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('water_p5') + "," + str(reading)
+        msg = date_str +  "," + str('water_p5') + "," + str(dreading) + "," + str(areading)
         client.publish(TOPIC, msg)
         print (msg)
 except:
