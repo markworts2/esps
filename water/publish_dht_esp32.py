@@ -39,7 +39,10 @@ p4.value(0)
 # push to MQQT
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('water_p5') + "," + str(dreading) + "," + str(areading)
+        msg = date_str +  "," + str('water_p5') + "," + str(dreading)
+        client.publish(TOPIC, msg)
+        print (msg)   
+        msg = date_str +  "," + str('water_p3') + "," + str(areading)
         client.publish(TOPIC, msg)
         print (msg)
 except:
