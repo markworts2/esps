@@ -7,7 +7,7 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_publish_water_esp32.py  v23/02/08 08:29')
+print ('dht_publish_water_esp32.py  v25/10/08 14:04')
 
 p4 = Pin(4, Pin.OUT) #power pin
 p5 = Pin(5, Pin.IN) #read water pin
@@ -27,7 +27,7 @@ except IndexError:
 
 print('turn on power pin 4')
 p4.value(1) #turn on the power pin
-print('read pin 5 the sensor ping')
+print('read pin 5 the sensor pin')
 reading = p5.value()
 print('turn off power pin')
 p4.value(0)
