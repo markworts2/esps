@@ -11,7 +11,7 @@ print ('dht_publish_water_esp32.py  v25/10/23 14:04')
 
 p4 = Pin(4, Pin.OUT) #power pin
 p5 = Pin(5, Pin.IN) #read water pin
-p6 = Pin(6, Pin.IN) #read water analogue pin
+p3 = Pin(3, Pin.IN) #read water analogue pin
 
 
 #connect to mqqt
@@ -32,7 +32,7 @@ p4.value(1) #turn on the power pin
 sleep(1)
 print('read pin 5 the sensor pin')
 dreading = p5.value()
-areading = p6.value()
+areading = p3.value()
 print('turn off power pin')
 p4.value(0)
 
