@@ -28,10 +28,14 @@ except IndexError:
 print('turn on power pin 4')
 p4.value(1) #turn on the power pin
 print('read pin 5 the sensor ping')
-#read p5 the plan water sensor and push to MQQT
+reading = p5.value()
+print('turn off power pin')
+p4.value(0)
+
+# push to MQQT
 try:
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('water_p5') + "," + str(p5.value())
+        msg = date_str +  "," + str('water_p5') + "," + str(reading)
         client.publish(TOPIC, msg)
         print (msg)
 except:
@@ -41,5 +45,4 @@ except:
         client.publish(TOPIC,msg)
 
 sleep(2)
-print('turn off power pin')
-p4.value(0)
+
