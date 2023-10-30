@@ -13,6 +13,7 @@ p = 0
 pin = []
 pinr = []
 while p < 17 :
+        print(p)
         pin[p] = Pin(p,Pin.IN)
         p = p +1
 
