@@ -14,7 +14,7 @@ p4 = Pin(4, Pin.OUT) #power pin
 p5 = Pin(5, Pin.IN) #read water pin
 adc = machine.ADC(0) #read water analogue pin
 
-ds_pin = machine.Pin(0)
+ds_pin = machine.Pin(2)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
 roms = ds_sensor.scan()
