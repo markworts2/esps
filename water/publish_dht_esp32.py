@@ -40,10 +40,9 @@ print('read pin 5 the sensor pin')
 dreading = p5.value()
 areading = adc.read()
 roms = ds_sensor.scan()
-print('Found DS devices: ', roms)
-
-print('turn off power pin')
 p4.value(0)
+print('turn off power pin')
+print('Found DS devices: ', roms)
 
 # push to MQQT
 try:
@@ -68,7 +67,5 @@ try:
              client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
              print(msg)
 except:
-        print('error')   
-print('sleeping')
-sleep(20)
+        print('error readin DHT')   
 
