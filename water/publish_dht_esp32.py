@@ -8,7 +8,7 @@ from struct import unpack
 from machine import Pin
 
 print ('dht_publish_water_esp32.py  v25/10/23 15:04')
-
+sleep(2)
 pins = [1,2,3,5,6]
 pin = []
 pinr = []
