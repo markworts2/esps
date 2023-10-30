@@ -7,12 +7,18 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_publish_water_esp32.py  v25/10/23 15:04')
+print ('dht_publish_water_esp32.py  v30/10/23 08:20')
 
 
 p4 = Pin(4, Pin.OUT) #power pin
 p5 = Pin(5, Pin.IN) #read water pin
 adc = machine.ADC(0) #read water analogue pin
+
+ds_pin = machine.Pin(0)
+ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
+
+roms = ds_sensor.scan()
+print('Found DS devices: ', roms)
 
 
 #connect to mqqt
@@ -52,6 +58,16 @@ except:
         msg = date_str +  "," + 'reading failed'
         print('Failed to read sensor.')
         client.publish(TOPIC,msg)
+
+try:
+        ds_sensor.convert_temp()
+        sleep(1)
+        for rom in roms:
+             msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
+                client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
+                print(msg)
+except:
+        print('error')   
 
 sleep(2)
 
