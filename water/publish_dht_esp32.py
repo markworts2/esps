@@ -10,6 +10,8 @@ from machine import Pin
 print ('dht_publish_water_esp32.py  v25/10/23 15:04')
 
 p = 0
+pin = []
+pinr = []
 while p < 17 :
         pin[p] = Pin(p,Pin.IN)
         p = p +1
