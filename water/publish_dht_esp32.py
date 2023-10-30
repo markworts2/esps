@@ -17,8 +17,7 @@ adc = machine.ADC(0) #read water analogue pin
 ds_pin = machine.Pin(2)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
-roms = ds_sensor.scan()
-print('Found DS devices: ', roms)
+
 
 
 #connect to mqqt
@@ -40,6 +39,8 @@ sleep(1)
 print('read pin 5 the sensor pin')
 dreading = p5.value()
 areading = adc.read()
+roms = ds_sensor.scan()
+print('Found DS devices: ', roms)
 
 print('turn off power pin')
 p4.value(0)
