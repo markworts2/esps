@@ -64,8 +64,8 @@ try:
         sleep(1)
         for rom in roms:
              msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
-                client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
-                print(msg)
+             client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
+             print(msg)
 except:
         print('error')   
 
