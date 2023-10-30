@@ -35,7 +35,7 @@ except IndexError:
 
 print('turn on power pin 4')
 p4.value(1) #turn on the power pin
-sleep(1)
+sleep(10)
 print('read pin 5 the sensor pin')
 dreading = p5.value()
 areading = adc.read()
