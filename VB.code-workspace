@@ -21,6 +21,10 @@
 		},
 		{
 			"path": "../ha"
+		},
+		{
+			"name": "aws_cost",
+			"path": "../../Documents/VB/aws_cost"
 		}
 	],
 	"settings": {}
