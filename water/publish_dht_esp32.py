@@ -11,7 +11,7 @@ print ('dht_publish_water_esp32.py  v25/10/23 15:04')
 
 p = 0
 while p < 17 :
-        pin[p] = Pin(p,Pin,IN)
+        pin[p] = Pin(p,Pin.IN)
         p = p +1
 
 p4 = Pin(4, Pin.OUT) #power pin
