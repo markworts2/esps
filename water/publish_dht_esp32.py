@@ -69,6 +69,6 @@ try:
              print(msg)
 except:
         print('error')   
-
-sleep(2)
+print('sleeping')
+sleep(20)
 
