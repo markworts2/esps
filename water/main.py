@@ -69,6 +69,6 @@ except KeyboardInterrupt:
 #    print('Error going to pass')
 #    pass
 print('back in main, sleep 5 mins')
-machine.deepsleep(300000) 
-#machine.deepsleep(3000000)
+#machine.deepsleep(300000) 
+machine.deepsleep(1000000)
 machine.reset()
