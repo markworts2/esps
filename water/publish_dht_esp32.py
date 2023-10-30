@@ -8,17 +8,11 @@ from struct import unpack
 from machine import Pin
 
 print ('dht_publish_water_esp32.py  v25/10/23 15:04')
-sleep(2)
-pins = [1,2,3,5,6]
-pin = []
-pinr = []
-for p in pins :
-        print(p)
-        pin[p] = Pin(p, Pin.IN)
+
 
 p4 = Pin(4, Pin.OUT) #power pin
-#p5 = Pin(5, Pin.IN) #read water pin
-#p3 = Pin(3, Pin.IN) #read water analogue pin
+p5 = Pin(5, Pin.IN) #read water pin
+adc = machine.ADC(0) #read water analogue pin
 
 
 #connect to mqqt
@@ -38,24 +32,14 @@ print('turn on power pin 4')
 p4.value(1) #turn on the power pin
 sleep(1)
 print('read pin 5 the sensor pin')
-#dreading = p5.value()
-#areading = p3.value()
-p = 0
-while p < 17 :
-        pinr[p] = pin[p].value
-        p = p +1
+dreading = p5.value()
+areading = adc.read()
+
 print('turn off power pin')
 p4.value(0)
 
 # push to MQQT
 try:
-        p = 0
-        while p < 17 :
-                date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-                msg = date_str +  "," + str('water_p') + p + "," + str(pinr[p])
-                client.publish(TOPIC, msg)
-                p = p +1
-
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
         msg = date_str +  "," + str('water_p5') + "," + str(dreading)
         client.publish(TOPIC, msg)
