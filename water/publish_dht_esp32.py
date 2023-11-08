@@ -54,10 +54,13 @@ try:
         client.publish(TOPIC, msg)
         print (msg)
 except:
-        date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + 'reading failed'
-        print('Failed to read sensor.')
-        client.publish(TOPIC,msg)
+        try:
+                date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
+                msg = date_str +  "," + 'reading failed'
+                print('Failed to read sensor.')
+                client.publish(TOPIC,msg)
+        except:
+                print("can't send message")
 
 try:
         ds_sensor.convert_temp()
