@@ -71,6 +71,7 @@ try:
                 print(msg)
                 #client.publish(TOPIC,"test")
                 try:
+                        print("Client connect")
                         client.connect()   # Connect to MQTT broker
                 except IndexError:
                         print ('index error: can not connect to MQQT')
@@ -81,3 +82,4 @@ except Exception:
         print(traceback.format_exc())
         print('error readin DHT')
 print('hi')
+sleep(10)
