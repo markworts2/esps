@@ -72,5 +72,5 @@ try:
              client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
              print(msg)
 #except:
-#        print('error readin DHT')   
-
+#        print('error readin DHT')
+sleep(10)
