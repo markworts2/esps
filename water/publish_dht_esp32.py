@@ -68,8 +68,6 @@ try:
         sleep(1)
         for rom in roms:
                 msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
-                print(msg)
-                #client.publish(TOPIC,"test")
                 try:
                         print("Client connect")
                         client.connect()   # Connect to MQTT broker
