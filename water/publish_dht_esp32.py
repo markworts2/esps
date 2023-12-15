@@ -63,14 +63,14 @@ except:
                 print("can't send message")
 
 #try:
-        ds_sensor.convert_temp()
-        sleep(1)
-        for rom in roms:
-             msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
-             print(msg)
-             client.publish("test")
-             client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
-             print(msg)
+ds_sensor.convert_temp()
+sleep(1)
+for rom in roms:
+        msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
+        print(msg)
+        client.publish("test")
+        client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
+        print(msg)
 #except:
 #        print('error readin DHT')
 print("sleeping")
