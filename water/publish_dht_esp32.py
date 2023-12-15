@@ -7,7 +7,7 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_publish_water_esp32.py  v30/10/23 08:20')
+print ('dht_publish_water_esp32.py  v15/12/23 10:09')
 
 
 p4 = Pin(4, Pin.OUT) #power pin
@@ -62,16 +62,14 @@ except:
         except:
                 print("can't send message")
 
-#try:
-ds_sensor.convert_temp()
-sleep(1)
-for rom in roms:
-        msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
-        print(msg)
-        client.publish(TOPIC,"test")
-        client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
-        print(msg)
-#except:
-#        print('error readin DHT')
-print("sleeping")
-sleep(10)
+try:
+        ds_sensor.convert_temp()
+        sleep(1)
+        for rom in roms:
+                msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
+                print(msg)
+                #client.publish(TOPIC,"test")
+                client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
+                print(msg)
+except:
+        print('error readin DHT')
