@@ -70,6 +70,7 @@ try:
                 msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
                 print(msg)
                 #client.publish(TOPIC,"test")
+                client.publish(TOPIC,msg)
                 client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
                 print(msg)
 except Exception:
