@@ -75,7 +75,6 @@ try:
                         client.connect()   # Connect to MQTT broker
                 except IndexError:
                         print ('index error: can not connect to MQQT')
-                client.publish(TOPIC,msg)
                 client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
                 print(msg)
 except Exception:
