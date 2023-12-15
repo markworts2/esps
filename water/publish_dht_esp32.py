@@ -68,9 +68,9 @@ try:
         for rom in roms:
              msg = date_str +  "," + str(hex(unpack('<q', rom))) + "," + str(ds_sensor.read_temp(rom))
              print(msg)
-             client.publish('test')
+             client.publish("test")
              client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
              print(msg)
-except:
-        print('error readin DHT')   
+#except:
+#        print('error readin DHT')   
 
