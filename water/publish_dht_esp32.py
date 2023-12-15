@@ -62,7 +62,7 @@ except:
         except:
                 print("can't send message")
 
-try:
+#try:
         ds_sensor.convert_temp()
         sleep(1)
         for rom in roms:
