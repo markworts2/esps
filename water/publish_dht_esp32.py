@@ -73,4 +73,5 @@ except:
              print(msg)
 #except:
 #        print('error readin DHT')
+print("sleeping")
 sleep(10)
