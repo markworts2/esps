@@ -72,6 +72,7 @@ try:
                 #client.publish(TOPIC,"test")
                 client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
                 print(msg)
-#except:
-#        print('error readin DHT')
+except Exception, err:
+        print(traceback.format_exc())
+        print('error readin DHT')
 print('hi')
