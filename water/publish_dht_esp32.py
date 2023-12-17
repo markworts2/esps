@@ -75,8 +75,8 @@ try:
                         print ('index error: can not connect to MQQT')
                 client.publish(TOPIC, msg)  # Publish sensor data to MQTT topic
                 print(msg)
-except Exception:
-        print(traceback.format_exc())
+except Exception as err:
+    print(f"Unexpected {err=}, {type(err)=}")
         print('error readin DHT')
 print('hi')
 sleep(10)
