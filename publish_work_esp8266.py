@@ -10,6 +10,14 @@ except Exception as e: print(str(e))
 print('in publish max7219')
 print('version 20230505 v_0.02')
 
+DIN = 7
+CS = 6
+CLK = 5
+
+pdin = Pin(DIN, Pin.OUT)
+pcs = Pin(CS, Pin.OUT)
+pclk = Pin(CLK, Pin.OUT)
+
 
 try:
     display = max7219.SevenSegment(digits=8, scan_digits=4, cs=12, spi_bus=1, reverse=False)
