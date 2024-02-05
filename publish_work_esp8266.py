@@ -22,7 +22,7 @@ print(pclk_f)
 
 
 try:
-    display = max7219.SevenSegment(digits=8, scan_digits=4, cs=115, spi_bus=1, reverse=False)
+    display = max7219.SevenSegment(digits=8, scan_digits=4, cs=15, spi_bus=1, reverse=False)
     #display = max7219.SevenSegment()
     display.brightness(5)
     print("ABCDEF")
