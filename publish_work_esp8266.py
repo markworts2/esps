@@ -20,7 +20,7 @@ pclk = Pin(CLK, Pin.OUT)
 
 
 try:
-    display = max7219.SevenSegment(digits=8, scan_digits=4, cs=12, spi_bus=1, reverse=False)
+    display = max7219.SevenSegment(digits=8, scan_digits=4, cs=5, spi_bus=1, reverse=False)
     print("ABCDEF")
     display.text("ABCDEF")
     sleep(10)
