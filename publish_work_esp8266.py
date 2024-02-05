@@ -2,13 +2,13 @@ from time import sleep
 from time import time
 from umqtt.simple import MQTTClient
 import machine
-from machine import Pin, SPI
+from machine import Pin, SPI, PWM
 try:
     import max7219
 except Exception as e: print(str(e))
 
 print('in publish max7219')
-print('version 20240205 v_0.05')
+print('version 20240205 v_0.06')
 
 DIN = 13
 CS = 12
@@ -17,6 +17,8 @@ CLK = 14
 pdin = Pin(DIN, Pin.OUT)
 pcs = Pin(CS, Pin.OUT)
 pclk = Pin(CLK, Pin.OUT)
+pclk_f = PWM(Pin(CLK))
+print(pclk_f)
 
 
 try:
