@@ -10,9 +10,9 @@ except Exception as e: print(str(e))
 print('in publish max7219')
 print('version 20240205 v_0.02')
 
-DIN = 7
-CS = 6
-CLK = 5
+DIN = 13
+CS = 12
+CLK = 14
 
 pdin = Pin(DIN, Pin.OUT)
 pcs = Pin(CS, Pin.OUT)
