@@ -8,7 +8,7 @@ try:
 except Exception as e: print(str(e))
 
 print('in publish max7219')
-print('version 20230505 v_0.02')
+print('version 20240205 v_0.02')
 
 DIN = 7
 CS = 6
