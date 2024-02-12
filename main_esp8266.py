@@ -62,11 +62,11 @@ try:
     conectarwifi()
     startdht()
     print('in try catch')
-    sleep(5000)
+    sleep(5)
     print('Too late')
 except KeyboardInterrupt:
     print('keyboard')
-    sys.exit()
+    exit()
 except:
     print('Error going to pass')
     pass
