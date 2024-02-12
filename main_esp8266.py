@@ -61,7 +61,9 @@ def startdht():
 try:
     conectarwifi()
     startdht()
-    print('in try')
+    print('in try catch')
+    sleep(5000)
+    print('Too late')
 except KeyboardInterrupt:
     print('keyboard')
     sys.exit()
