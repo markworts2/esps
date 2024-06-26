@@ -17,7 +17,7 @@ adc = machine.ADC(0) #read water analogue pin
 ds_pin = machine.Pin(2)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
-print(Wifi.RSSI())
+print(WiFi.RSSI())
 
 
 #connect to mqqt

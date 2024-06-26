@@ -38,7 +38,7 @@ def conectarwifi():
               print ("OS error in 5 wifi loop")
               wlan.active(True)
             print(wlan.status())
-    print('network config:', wlan.ifconfig())
+    print('network config:', wlan.ifconfig(), wlan.RSSI)
     x = 1
     while x < 5:
       x = x + 1
