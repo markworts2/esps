@@ -44,29 +44,21 @@ print('turn off power pin')
 print('Found DS devices: ', roms)
 
 # push to MQQT
+
+date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
+msg = date_str +  "," + str('water_p5') + "," + str(dreading)
+#      print("pre"+msg)
 try:
-        date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('water_p5') + "," + str(dreading)
- #      print("pre"+msg)
-        try:
-                client.publish(TOPIC, msg)
-        except:
-                print("publish binary failed")
-        print (msg)
-        msg = date_str +  "," + str('water_p3') + "," + str(areading)
-        try:
-                client.publish(TOPIC, msg)
-        except:
-                print("publish analogue failed")
-        print (msg)
+        client.publish(TOPIC, msg)
 except:
-        try:
-                date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-                msg = date_str +  "," + 'reading failed'
-                print('Failed to read sensor.')
-                client.publish(TOPIC,msg)
-        except:
-                print("can't send message")
+        print("publish binary failed")
+print (msg)
+msg = date_str +  "," + str('water_p3') + "," + str(areading)
+try:
+        client.publish(TOPIC, msg)
+except:
+       print("publish analogue failed")
+print (msg)
 
 try:
         ds_sensor.convert_temp()
