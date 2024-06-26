@@ -7,7 +7,7 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_publish_water_esp32.py  v26/06/24 07:09')
+print ('dht_publish_water_esp32.py  v26/06/24 07:43')
 
 
 p4 = Pin(4, Pin.OUT) #power pin
@@ -17,7 +17,6 @@ adc = machine.ADC(0) #read water analogue pin
 ds_pin = machine.Pin(2)
 ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
 
-print(WiFi.RSSI())
 
 
 #connect to mqqt
