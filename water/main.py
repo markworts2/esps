@@ -11,7 +11,7 @@ from auth import (
 )
 
 print('in main')
-print ('Version 20230109_v_0.1')
+print ('Version 20240626_v_0.1')
 
 #Conect to WiFi
 def conectarwifi():
@@ -32,13 +32,14 @@ def conectarwifi():
             if x == 6:
               break
             print('Not connected',x)
+            print(wlan.status())
             try:
               wlan.active(True)
             except OSError as err:
               print ("OS error in 5 wifi loop")
               wlan.active(True)
             print(wlan.status())
-    print('network config:', wlan.ifconfig(), wlan.RSSI)
+    print('network config:', wlan.ifconfig())
     x = 1
     while x < 5:
       x = x + 1
