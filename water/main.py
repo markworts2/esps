@@ -40,6 +40,9 @@ def conectarwifi():
               wlan.active(True)
             print(wlan.status())
     print('network config:', wlan.ifconfig())
+    if not (wlan.status):
+      machine.deepsleep(10000)
+      machine.reset()
     x = 1
     while x < 5:
       x = x + 1
