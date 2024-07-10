@@ -43,7 +43,7 @@ def conectarwifi():
     print('connection status: ',wlan.isconnected())
     if not wlan.isconnected():
       print ("could not connect to wifi rebooting")
-      machine.deepsleep(10000)
+      machine.deepsleep(100000)
       machine.reset()
     x = 1
     while x < 5:
@@ -76,5 +76,5 @@ except KeyboardInterrupt:
 #    pass
 print('back in main, sleep 5 mins')
 #machine.deepsleep(300000) 
-machine.deepsleep(10000)
+machine.deepsleep(1000000)
 machine.reset()
