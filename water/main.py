@@ -40,8 +40,8 @@ def conectarwifi():
               wlan.active(True)
             print(wlan.status())
     print('network config:', wlan.ifconfig())
-    print('connection status: ',wlan.isconnected)
-    if not wlan.isconnected:
+    print('connection status: ',wlan.isconnected())
+    if not wlan.isconnected():
       print ("could not connect to wifi rebooting")
       machine.deepsleep(10000)
       machine.reset()
