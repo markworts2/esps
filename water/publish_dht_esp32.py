@@ -38,11 +38,11 @@ sleep(10)
 print('read pin 5 the sensor pin')
 dreading = p5.value()
 areading = adc.read()
+roms = ds_sensor.scan()
 p4.value(0)
 print('turn off power pin')
 print('Found DS devices: ', roms)
 
-roms = ds_sensor.scan()
 # push to MQQT
 
 date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
