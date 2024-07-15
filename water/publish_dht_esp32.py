@@ -38,7 +38,7 @@ sleep(10)
 print('read pin 5 the sensor pin')
 dreading = p5.value()
 areading = adc.read()
-roms = ds_sensor.scan()
+roms = ds_sensor.scan() #return
 p4.value(0)
 print('turn off power pin')
 print('Found DS devices: ', roms)
