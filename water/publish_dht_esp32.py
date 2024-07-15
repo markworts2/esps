@@ -32,7 +32,7 @@ try:
 except IndexError:
    print ('index error: can not connect to MQQT')
 
-print(rtc.datetime)
+print(rtc.datetime())
 print('turn on power pin 4')
 p4.value(1) #turn on the power pin
 sleep(10)
