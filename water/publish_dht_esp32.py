@@ -32,15 +32,17 @@ try:
 except IndexError:
    print ('index error: can not connect to MQQT')
 
+print(rtc.datetime)
 print('turn on power pin 4')
 p4.value(1) #turn on the power pin
 sleep(10)
 print('read pin 5 the sensor pin')
 dreading = p5.value()
 areading = adc.read()
-roms = ds_sensor.scan() #return
 p4.value(0)
 print('turn off power pin')
+
+roms = ds_sensor.scan() #return
 print('Found DS devices: ', roms)
 
 # push to MQQT
