@@ -48,21 +48,23 @@ if date_t[5] == int(date_t[5]/6):
 
         # push to MQQT
         msg = date_str +  "," + str('water_p5') + "," + str(dreading)
-        #      print("pre"+msg)
         try:
                 client.publish(TOPIC, msg)
         except:
                 print("publish binary failed")
                 print (msg)
 
+                
+        msg = date_str +  "," + str('water_p3') + "," + str(areading)
+        try:
+                client.publish(TOPIC, msg)
+        except:
+                print("publish analogue failed")
+                print (msg)
+
 roms = ds_sensor.scan() #return
 print('Found DS devices: ', roms)
-msg = date_str +  "," + str('water_p3') + "," + str(areading)
-try:
-        client.publish(TOPIC, msg)
-except:
-       print("publish analogue failed")
-print (msg)
+
 
 try:
         ds_sensor.convert_temp()
