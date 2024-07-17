@@ -49,14 +49,14 @@ if date_t[5] == int(date_t[5]/6):
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
         msg = date_str +  "," + str('water_p5') + "," + str(dreading)
         #      print("pre"+msg)
+        try:
+                client.publish(TOPIC, msg)
+        except:
+                print("publish binary failed")
+                print (msg)
 
 roms = ds_sensor.scan() #return
 print('Found DS devices: ', roms)
-try:
-        client.publish(TOPIC, msg)
-except:
-        print("publish binary failed")
-print (msg)
 msg = date_str +  "," + str('water_p3') + "," + str(areading)
 try:
         client.publish(TOPIC, msg)
