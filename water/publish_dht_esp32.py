@@ -34,7 +34,7 @@ except IndexError:
 
 print(rtc.datetime())
 date_t=rtc.datetime()
-if date_t[5] == 11:
+if date_t[5] == int(date_t[5]/6):
         print('turn on power pin 4')
         p4.value(1) #turn on the power pin
         sleep(10)
@@ -44,14 +44,14 @@ if date_t[5] == 11:
         p4.value(0)
         print('turn off power pin')
 
+        # push to MQQT
+
+        date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
+        msg = date_str +  "," + str('water_p5') + "," + str(dreading)
+        #      print("pre"+msg)
+
 roms = ds_sensor.scan() #return
 print('Found DS devices: ', roms)
-
-# push to MQQT
-
-date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-msg = date_str +  "," + str('water_p5') + "," + str(dreading)
-#      print("pre"+msg)
 try:
         client.publish(TOPIC, msg)
 except:
