@@ -51,6 +51,7 @@ if date_t[4]/6 == int(date_t[4]/6):
         msg = date_str +  "," + str('water_p5') + "," + str(dreading)
         try:
                 client.publish(TOPIC, msg)
+                print (msg)
         except:
                 print("publish binary failed")
                 print (msg)
