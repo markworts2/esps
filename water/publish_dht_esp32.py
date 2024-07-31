@@ -36,6 +36,7 @@ date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
 
 #print(rtc.datetime())
 date_t=rtc.datetime()
+print(date_t[5],date_t[5]/6)
 if date_t[5] == int(date_t[5]/6):
         print('turn on power pin 4')
         p4.value(1) #turn on the power pin
