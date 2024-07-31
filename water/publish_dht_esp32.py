@@ -44,10 +44,10 @@ if date_t[5] == int(date_t[5]/6):
         dreading = p5.value()
         areading = adc.read()
         p4.value(0)
-        print('turn off power pin')
+        print('turned off power pin')
 
         # push to MQQT
-        msg = date_str +  "," + str('water_p5') + "," + str(dreading)
+        msg = date_str +  "," + str('water_p5') + "," + str(dreading) + "," + date_t[5]
         try:
                 client.publish(TOPIC, msg)
         except:

@@ -30,8 +30,9 @@ except IndexError:
 
 #read p5 the plan water sensor and push to MQQT
 try:
+        sleep(10)
         date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
-        msg = date_str +  "," + str('p5') + "," + str(p3.value())
+        msg = date_str +  "," + str('p5') + "," + str(p3.value())+","+
         client.publish(TOPIC, msg)
         print (msg)
 except:
@@ -40,7 +41,6 @@ except:
         print('Failed to read sensor.')
         client.publish(TOPIC,msg)
 
-sleep(5)
 print('turn off power pin')
 p4.value(0)
 
