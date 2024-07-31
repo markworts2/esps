@@ -48,7 +48,7 @@ if date_t[4]/6 == int(date_t[4]/6):
         print('turned off power pin')
 
         # push to MQQT
-        msg = date_str +  "," + str('water_p5') + "," + str(dreading) + "," + date_t[5]
+        msg = date_str +  "," + str('water_p5') + "," + str(dreading)
         try:
                 client.publish(TOPIC, msg)
         except:
