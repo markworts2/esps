@@ -8,7 +8,7 @@ from struct import unpack
 from machine import Pin
 from machine import ADC
 print('end of imports')
-print('version 20220329_v_w0.1')
+print('version 20241031_v_w0.1')
 
 # create an output pin on pin #0
 # pp = 4

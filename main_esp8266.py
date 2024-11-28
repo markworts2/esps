@@ -53,7 +53,7 @@ def conectarwifi():
 
 def startdht():
     print('in startdht')
-    import publish_dht_esp32 #choose which publish module to run
+    import publish_dht_esp8266 #choose which publish module to run
     print('done import')
 #    dht_publish.run
     print('done run')
