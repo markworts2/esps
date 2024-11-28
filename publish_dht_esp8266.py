@@ -77,6 +77,6 @@ except OSError:
     msg = (b'{}'.format(d))
     print('Failed to read sensor.')
     client.publish(TOPIC,msg)
-except Exception as e: print(str(e))
+except Exception as e: print('excption '+str(e))
 print('sleep 5')
 sleep(5)
