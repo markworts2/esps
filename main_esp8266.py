@@ -61,7 +61,7 @@ def startdht():
 try:
     conectarwifi()
     startdht()
-    print('in try catch')
+    print('in try catch hit ctrl-c now!')
     sleep(5)
     print('Too late')
 except KeyboardInterrupt:
