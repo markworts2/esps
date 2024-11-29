@@ -71,5 +71,5 @@ except:
     print('Error going to pass')
     pass
 print('back in main, sleep 5 mins')
-machine.deepsleep(30000)
+machine.deepsleep(300)
 machine.reset()
