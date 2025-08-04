@@ -29,8 +29,8 @@ print('Connecting to MQTT')
 client = MQTTClient(CLIENT_ID, SERVER)
 try:
    client.connect()   # Connect to MQTT broker
-except IndexError:
-   print ('index error: can not connect to MQQT')
+except Exception as err:
+        print(f"Unexpected {err=}, {type(err)=}")
    
 date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
 
