@@ -7,7 +7,7 @@ import onewire, ds18x20
 from struct import unpack
 from machine import Pin
 
-print ('dht_publish_water_esp32.py  v26/06/24 07:43')
+print ('dht_publish_water_esp32.py  v16/12/26 08:15')
 
 
 p4 = Pin(4, Pin.OUT) #power pin
@@ -37,7 +37,9 @@ date_str = "{2:02d}/{1:02d}/{0:4d} {4:02d}:{5:02d}".format(*rtc.datetime())
 #print(rtc.datetime())
 date_t=rtc.datetime()
 print(date_t[4],date_t[4]/6,int(date_t[4]/6))
-if date_t[4]/6 == int(date_t[4]/6):
+#debig = true to make run every time
+debug = True
+if date_t[4]/6 == int(date_t[4]/6) or debug == True:
         print('turn on power pin 4')
         p4.value(1) #turn on the power pin
         sleep(10)
